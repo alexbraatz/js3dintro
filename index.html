@@ -6,6 +6,7 @@
 	</head>
 	<body>
 		<script src="three.min.js"></script>
+		<script src="OrbitControls.js"></script>
 			<script>
 			let scene, camera, renderer;
 			function init() {
@@ -18,7 +19,11 @@
 				render.setSize(window.innerWidth, window.innerHeight);
 				document.body.appendChild(render.domElement);
 
-				let controls = new THREE.Orbit
+				let controls = new THREE.OrbitControls(camera);
+				controls.addEventListener('change', renderer);
+
+				let materialArray = [];
+				let texture_ft = new THREE.TextureLoader().load('')
 			}
 		</script>
 	</body>
