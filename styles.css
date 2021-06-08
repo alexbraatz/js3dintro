@@ -1,4 +1,7 @@
 body {
-	background-color: black;
 	margin: 0;
+}
+
+.navbar {
+	align-items: center;
 }
