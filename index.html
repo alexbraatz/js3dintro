@@ -1,32 +1,32 @@
-<!DOCTYPE html>
 <html>
-	<head>
-		<meta charset=UTF-8 />
-		<script src="./src/components/Cube/cube.js"></script>
-		<link rel="stylesheet" type="text/css" href="styles.css" />
-	</head>
-	<body>
-		
-		<!-- <script src="three.min.js"></script>
-		<script src="OrbitControls.js"></script>
-			<script>
-			let scene, camera, renderer;
-			function init() {
-				scene = new THREE.Scene;
-
-				camera = new THREE.PerspectiveCamera(55, window.innerWidth/window.innerHeight, 45, 30000);
-				camera.position.set(-900,-200, -900);
-
-				renderer = new THREE.WebGLRenderer({antialias:true});
-				render.setSize(window.innerWidth, window.innerHeight);
-				document.body.appendChild(render.domElement);
-
-				let controls = new THREE.OrbitControls(camera);
-				controls.addEventListener('change', renderer);
-
-				let materialArray = [];
-				let texture_ft = new THREE.TextureLoader().load('')
-			}
-		</script> -->
-	</body>
+        <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <script src="jquery-2.1.4.js"></script>
+        <link rel="stylesheet" type="text/css" href="styles.css">
+        </head>
+        <body>
+        <div id="navbar"><span>Three.js Tutorial</span></div>
+        <script src="three.min.js"></script>
+        <script>
+          var scene = new THREE.Scene();
+          var camera = new THREE.PerspectiveCamera(75,window.innerWidth/window.innerHeight);
+          var renderer = new THREE.WebGLRenderer({antialias: true});
+          renderer.setSize(window.innerWidth,window.innerHeight);
+          $('body').append(renderer.domElement);
+          var geometry = new THREE.BoxGeometry(1,1,1);
+          var material = new THREE.MeshBasicMaterial({color: 0xff0000});
+          var cube = new THREE.Mesh(geometry,material);
+          scene.add(cube);
+          cube.position.z = -5;
+          cube.rotation.x = 10;
+          cube.rotation.y = 5;
+          renderer.render(scene,camera);
+          var animate = function(){
+            cube.rotation.x += 0.01;
+            renderer.render(scene,camera);
+            requestAnimationFrame(animate);
+          }
+          animate();
+        </script>
+        </body>
 </html>
